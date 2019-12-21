@@ -60,7 +60,7 @@ class RoundScoreMenu {
 		RoundScoreType(name: "Jack"),
 		RoundScoreType(name: "Joker"),
 		RoundScoreType(name: "Game"),
-		RoundScoreType(name: "Shoot the Moon")
+		RoundScoreType(name: "Shot the Moon")
 	]
 	var team2List = [
 		RoundScoreType(name: "High"),
@@ -68,7 +68,7 @@ class RoundScoreMenu {
 		RoundScoreType(name: "Jack"),
 		RoundScoreType(name: "Joker"),
 		RoundScoreType(name: "Game"),
-		RoundScoreType(name: "Shoot the Moon")
+		RoundScoreType(name: "Shot the Moon")
 	]
 	
 	func scoreMenu(for team: Team) -> [RoundScoreType] {
@@ -80,15 +80,56 @@ class RoundScoreMenu {
 		}
 	}
 	
-	func select(scoreTypeAt indexPath: IndexPath) {
-		print("Section: \(indexPath.section), and row: \(indexPath.row)")
+	func cellData(indexPath: IndexPath) -> RoundScoreType {
 		if indexPath.section == 0 {
-			team1List[indexPath.row].isSelected = !team1List[indexPath.row].isSelected
+			return team1List[indexPath.row]
 		} else {
-			team2List[indexPath.row].isSelected = !team2List[indexPath.row].isSelected
+			return team2List[indexPath.row]
 		}
 	}
 	
+	func select(scoreTypeAt indexPath: IndexPath) {
+		print("Section: \(indexPath.section), and row: \(indexPath.row)")
+		let team1item = team1List[indexPath.row]
+		let team2item = team2List[indexPath.row]
+		if indexPath.section == 0 {
+			team1item.toggleSelection()
+			if team1item.isSelected && team2item.isSelected {
+				team2item.toggleSelection()
+			}
+//			shootTheMoonCheck(scoreItem: team1item, team: .team1)
+		} else {
+			team2item.toggleSelection()
+			if team2item.isSelected && team1item.isSelected {
+				team1item.toggleSelection()
+			}
+//			shootTheMoonCheck(scoreItem: team2item, team: .team2)
+		}
+	}
+	/*
+	func shootTheMoonCheck(scoreItem: RoundScoreType, team: Team) {
+		if scoreItem.name == "Shot the Moon" {
+			switch team {
+			case .team1:
+				for item in team1List {
+					if item.name != "Shot the Moon" {
+						item.isSelected =  false
+					} else {
+						item.toggleSelection()
+					}
+				}
+			case .team2:
+				for item in team2List {
+					if item.name != "Shot the Moon" {
+						item.isSelected =  false
+					} else {
+						item.toggleSelection()
+					}
+				}
+			}
+		}
+	}
+	*/
 	func totalScore(for team: Team) -> Int {
 		switch  team{
 		case .team1:

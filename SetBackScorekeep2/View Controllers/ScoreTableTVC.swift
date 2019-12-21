@@ -16,6 +16,8 @@ class ScoreTableTVC: UITableViewController {
 	
 	var team1Name = "Team 1"
 	var team2Name = "Team 2"
+	var scoreMenu = RoundScoreMenu()
+	
 	var team1List = RoundScoreMenu().team1List
 	var team2List = RoundScoreMenu().team2List
 	
@@ -38,12 +40,14 @@ class ScoreTableTVC: UITableViewController {
 		
 	}
 	
-	func tallyScore(_ section: Int){
-		if section == 0 {
-			team1RoundScore = team1List.filter {$0.isSelected == true}.count
-		} else {
-			team2RoundScore = team2List.filter {$0.isSelected == true}.count
-		}
+	func tallyScore(){
+		team1RoundScore = scoreMenu.totalScore(for: .team1)
+		team2RoundScore = scoreMenu.totalScore(for: .team2)
+//		if section == 0 {
+//			team1RoundScore = team1List.filter {$0.isSelected == true}.count
+//		} else {
+//			team2RoundScore = team2List.filter {$0.isSelected == true}.count
+//		}
 	}
 	
 	func teamMadeTheirBid(_ team: RoundScoreMenu.Team) {
@@ -84,36 +88,56 @@ class ScoreTableTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+		if currentBid == 6 && currentBidder?.rawValue == section {
+			return 6
+		} else {
+			return 5
+		}
     }
 	
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		if section == 0 {
-			return team1Name + ": " + String(team1RoundScore.description)
+			if team1RoundScore == 22 {
+				return team1Name + ": Shot the moon!"
+			} else {
+				return team1Name + ": " + String(team1RoundScore.description)
+			}
 		} else {
-			return team2Name + ": " + String(team2RoundScore.description)
+			if team1RoundScore == 22 {
+				return team2Name + ": Shot the moon!"
+			} else {
+				return team2Name + ": " + String(team2RoundScore.description)
+			}
 		}
 	}
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ScoreCell", for: indexPath)
+		configureCell(cell: cell, item: scoreMenu.cellData(indexPath: indexPath))
+		/*
 		if indexPath.section == 0 {
 			configureCell(cell: cell, item: team1List[indexPath.row])
 		} else {
 			configureCell(cell: cell, item: team2List[indexPath.row])
 		}
+		*/
         return cell
     }
     
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.cellForRow(at: indexPath)?.isSelected = true
 		print("Section: \(indexPath.section), row: \(indexPath.row)")
+		
+		scoreMenu.select(scoreTypeAt: indexPath)
+		/*
 		if indexPath.section == 0 {
 			team1List[indexPath.row].toggleSelection()
 		} else {
 			team2List[indexPath.row].toggleSelection()
 		}
-		tallyScore(indexPath.section)
+		*/
+		
+		tallyScore()
 		tableView.reloadData()
 	}
 
