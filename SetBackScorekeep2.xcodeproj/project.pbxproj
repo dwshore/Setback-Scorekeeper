@@ -13,6 +13,11 @@
 		022407BF23A48698003A0C40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022407BD23A48698003A0C40 /* Main.storyboard */; };
 		022407C123A4869C003A0C40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 022407C023A4869C003A0C40 /* Assets.xcassets */; };
 		022407C423A4869C003A0C40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 022407C223A4869C003A0C40 /* LaunchScreen.storyboard */; };
+		022407CC23A54874003A0C40 /* MainGameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022407CB23A54874003A0C40 /* MainGameVC.swift */; };
+		022407CF23A54899003A0C40 /* GameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022407CE23A54899003A0C40 /* GameData.swift */; };
+		022407D123A548BD003A0C40 /* TeamNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022407D023A548BD003A0C40 /* TeamNameVC.swift */; };
+		022407DB23A6CFB5003A0C40 /* ScoreButtonsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022407DA23A6CFB5003A0C40 /* ScoreButtonsVC.swift */; };
+		0244306B23ADB5BA0048B6EE /* ScoreTableTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0244306A23ADB5BA0048B6EE /* ScoreTableTVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		022407C023A4869C003A0C40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		022407C323A4869C003A0C40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		022407C523A4869C003A0C40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		022407CB23A54874003A0C40 /* MainGameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGameVC.swift; sourceTree = "<group>"; };
+		022407CE23A54899003A0C40 /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
+		022407D023A548BD003A0C40 /* TeamNameVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamNameVC.swift; sourceTree = "<group>"; };
+		022407DA23A6CFB5003A0C40 /* ScoreButtonsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreButtonsVC.swift; sourceTree = "<group>"; };
+		0244306A23ADB5BA0048B6EE /* ScoreTableTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreTableTVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +50,7 @@
 		022407AB23A48698003A0C40 = {
 			isa = PBXGroup;
 			children = (
+				022407DA23A6CFB5003A0C40 /* ScoreButtonsVC.swift */,
 				022407B623A48698003A0C40 /* SetBackScorekeep2 */,
 				022407B523A48698003A0C40 /* Products */,
 			);
@@ -60,11 +71,23 @@
 				022407B923A48698003A0C40 /* SceneDelegate.swift */,
 				022407BB23A48698003A0C40 /* ViewController.swift */,
 				022407BD23A48698003A0C40 /* Main.storyboard */,
+				022407CE23A54899003A0C40 /* GameData.swift */,
+				022407CD23A5487D003A0C40 /* View Controllers */,
 				022407C023A4869C003A0C40 /* Assets.xcassets */,
 				022407C223A4869C003A0C40 /* LaunchScreen.storyboard */,
 				022407C523A4869C003A0C40 /* Info.plist */,
 			);
 			path = SetBackScorekeep2;
+			sourceTree = "<group>";
+		};
+		022407CD23A5487D003A0C40 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0244306A23ADB5BA0048B6EE /* ScoreTableTVC.swift */,
+				022407CB23A54874003A0C40 /* MainGameVC.swift */,
+				022407D023A548BD003A0C40 /* TeamNameVC.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +161,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				022407D123A548BD003A0C40 /* TeamNameVC.swift in Sources */,
 				022407BC23A48698003A0C40 /* ViewController.swift in Sources */,
+				022407CF23A54899003A0C40 /* GameData.swift in Sources */,
+				022407DB23A6CFB5003A0C40 /* ScoreButtonsVC.swift in Sources */,
+				0244306B23ADB5BA0048B6EE /* ScoreTableTVC.swift in Sources */,
 				022407B823A48698003A0C40 /* AppDelegate.swift in Sources */,
 				022407BA23A48698003A0C40 /* SceneDelegate.swift in Sources */,
+				022407CC23A54874003A0C40 /* MainGameVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
