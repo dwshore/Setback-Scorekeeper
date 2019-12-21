@@ -83,8 +83,8 @@
 		022407CD23A5487D003A0C40 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0244306A23ADB5BA0048B6EE /* ScoreTableTVC.swift */,
 				022407CB23A54874003A0C40 /* MainGameVC.swift */,
+				0244306A23ADB5BA0048B6EE /* ScoreTableTVC.swift */,
 				022407D023A548BD003A0C40 /* TeamNameVC.swift */,
 			);
 			path = "View Controllers";

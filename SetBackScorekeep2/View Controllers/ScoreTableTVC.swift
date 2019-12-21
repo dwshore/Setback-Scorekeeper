@@ -25,6 +25,9 @@ class ScoreTableTVC: UITableViewController {
 	var round: Int?
 	var delegate: ScoreTableDelegate?
 	
+	var currentBidder: RoundScoreMenu.Team?
+	var currentBid: Int = 0
+	
 	func configureCell(cell: UITableViewCell, item: RoundScoreType){
 		cell.textLabel!.text = item.name
 		if item.isSelected {
@@ -43,17 +46,32 @@ class ScoreTableTVC: UITableViewController {
 		}
 	}
 	
+	func teamMadeTheirBid(_ team: RoundScoreMenu.Team) {
+		switch team {
+		case .team1:
+			if team1RoundScore >= currentBid {
+				print("made the bid")
+			} else {
+				print("was set")
+				team1RoundScore = 0-currentBid
+			}
+		case .team2:
+			if team2RoundScore >= currentBid {
+				print("made the bid")
+			} else {
+				print("was set")
+				team2RoundScore = 0-currentBid
+			}
+		}
+	}
 
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		tableView.delegate = self
-		tableView.dataSource = self
-		tableView.allowsSelection = true
-		tableView.isUserInteractionEnabled = true
     }
 	
 	override func viewWillDisappear(_ animated: Bool) {
+		teamMadeTheirBid(currentBidder!)
 		delegate?.scoreTableDelegate(team1Score: team1RoundScore, team2Score: team2RoundScore, round: round!)
 	}
 

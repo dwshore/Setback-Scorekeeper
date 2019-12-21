@@ -11,7 +11,7 @@ import UIKit
 class ScoreButtonsVC: UIViewController {
 	
 	var currentGame: Game?
-	var bidder: Game.Teams?
+	var bidder: RoundScoreMenu.Team?
 	var scoreMenu = RoundScoreMenu()
 	var scoreItemA: RoundScoreType?
 	var scoreItemB: RoundScoreType?

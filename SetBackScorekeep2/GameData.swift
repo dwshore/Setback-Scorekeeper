@@ -15,22 +15,18 @@ class Game {
 	var team1Score: Int
 	var team2Score: Int
 	
-	var currentBidder: Teams
-	var currentBidAmount: Int?
+	var currentBidder: RoundScoreMenu.Team
+	var currentBidAmount: Int
 	var currentRound: Int?
 	
 	init(team1Name: String, team2Name: String) {
 		self.team1Name = team1Name
 		self.team2Name = team2Name
 		self.currentBidder = .team1
+		self.currentBidAmount = 1
 		self.team1Score = 0
 		self.team2Score = 0
 		self.currentRound = 1
-	}
-	
-	enum Teams: String, CaseIterable {
-		case team1 = "Team 1"
-		case team2 = "Team 2"
 	}
 	
 	func updateScore(team1Score: Int, team2Score: Int, round: Int){

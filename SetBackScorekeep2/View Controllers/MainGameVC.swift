@@ -95,6 +95,8 @@ class MainGameVC: UIViewController {
 		case "ShowScoreTable":
 			let vc = segue.destination as! ScoreTableTVC
 			vc.delegate = self
+			vc.currentBidder = currentGame?.currentBidder
+			vc.currentBid = currentGame!.currentBidAmount
 			vc.round = currentGame?.currentRound
 			vc.team1Name = currentGame!.team1Name
 			vc.team2Name = currentGame!.team2Name
